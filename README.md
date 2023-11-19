@@ -13,17 +13,18 @@ Training is carried out using perceptual loss, as defined in the paper "Perceptu
 
 # Usage Instructions
 
-1.Run the following in project folder download requirements.
+1.Clone this repo and run the following in project folder to download requirements.
   ```sh
   pip install -r requirements.txt
   ```
 2. Download the zipped images dataset from google drive <a href="https://drive.google.com/file/d/15IF18bDscAVg8eAta6PGtKYmLEta-Ofd/view?usp=sharing">link</a> in the same project folder.<br>
-3. Run the jupyter notebook. A model checkpoint is provided in this repo for instant inference without training.
+3. Run the jupyter notebook. A model checkpoint is provided in this repo for instant inference without training (nst_model_weights).
 
 
 # Limitations
 
 This approach involves training an autoencoder on 1 style image at a time. After the overhead of training, this approach is significantly faster than the approach by https://arxiv.org/abs/1508.06576 which involves directly training the image matrix. However that approach can accomodate different style images. My model can accomodate one for 1 set of encoder-decoder weights, making inference much faster but adaptability limited. 
+Also, there might be high frequency artifacts in the generated images. Due to time constraits I was not able to completely remove them. Training on further epochs may solve this issue.
 
 
 
