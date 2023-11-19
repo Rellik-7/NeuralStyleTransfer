@@ -6,14 +6,24 @@ This approach is significantly faster than the optimization-based technique intr
 The feedforward network, functioning as a residual autoencoder, takes a content image as input and generates a stylized output. Additionally, the model incorporates instance normalization instead of batch normalization, as suggested in the paper titled "Instance Normalization: The Missing Ingredient for Fast Stylization."
 Training is carried out using perceptual loss, as defined in the paper "Perceptual Losses for Real-Time Style Transfer and Super-Resolution." The Vgg19 model is employed to calculate perceptual loss, with further details provided in the associated paper.
 
+
+![image](https://github.com/Rellik-7/NeuralStyleTransfer/assets/75270052/94799dbc-5ef9-40cf-89d0-9e238deaa0e9)
+![image](https://github.com/Rellik-7/NeuralStyleTransfer/assets/75270052/6e565858-6174-4dda-939d-c7c09bbd84cb)
+
+
 # Usage Instructions
 
 1.Run the following in project folder download requirements.
   ```sh
   pip install -r requirements.txt
   ```
-2. Download the zipped images dataset from google drive <a href="https://drive.google.com/file/d/15IF18bDscAVg8eAta6PGtKYmLEta-Ofd/view?usp=sharing">link</a>.<br>
-3. Run the jupyter notebook.
+2. Download the zipped images dataset from google drive <a href="https://drive.google.com/file/d/15IF18bDscAVg8eAta6PGtKYmLEta-Ofd/view?usp=sharing">link</a> in the same project folder.<br>
+3. Run the jupyter notebook. A model checkpoint is provided in this repo for instant inference without training.
+
+
+# Limitations
+
+This approach involves training an autoencoder on 1 style image at a time. After the overhead of training, this approach is significantly faster than the approach by https://arxiv.org/abs/1508.06576 which involves directly training the image matrix. However that approach can accomodate different style images. My model can accomodate one for 1 set of encoder-decoder weights, making inference much faster but adaptability limited. 
 
 
 
